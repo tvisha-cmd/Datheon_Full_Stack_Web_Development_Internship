@@ -1,0 +1,306 @@
+/* ---------- 1. COLORS AND BASICS ---------- */
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --text: #1b2330;
+  --muted: #6b7587;
+  --accent: #0a7fc2;
+  --border: #dde3ec;
+  --danger: #e5484d;
+  --done: #2e9e5b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 1.5rem 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- 2. THE APP CARD ---------- */
+.app {
+  max-width: 640px;
+  margin: 0 auto;                /* centers the card */
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+header {
+  margin-bottom: 1.25rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+#task-count {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 3. THE ADD FORM ---------- */
+#task-form {
+  display: flex;
+  flex-wrap: wrap;               /* items move to a new line when there is no room */
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+#task-input {
+  flex: 1 1 100%;                /* the text box takes a full row */
+}
+
+input,
+select {
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#category-select,
+#due-date {
+  flex: 1 1 140px;
+}
+
+#add-btn {
+  flex: 1 1 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-weight: 600;
+}
+
+#add-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- 4. SEARCH AND FILTERS ---------- */
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#search-input {
+  flex: 1 1 200px;
+}
+
+#filters {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.filter-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  color: var(--text);
+}
+
+.filter-btn.active {              /* the currently selected filter */
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- 5. THE TASK LIST ---------- */
+#task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  animation: slideIn 0.25s ease;  /* new tasks slide in */
+}
+
+.task-item input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.task-info {
+  flex: 1;
+  min-width: 0;                   /* lets long text wrap instead of overflowing */
+}
+
+.task-text {
+  word-break: break-word;
+  transition: color 0.3s;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* category badges */
+.badge {
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.badge.Work     { color: #0a7fc2; }
+.badge.Personal { color: #b35bd1; }
+.badge.Study    { color: #d98a00; }
+
+.overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* completed tasks: crossed out and faded (animated with a transition) */
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-item.completed {
+  opacity: 0.7;
+}
+
+/* edit and delete buttons */
+.task-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.task-actions button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  color: var(--text);
+}
+
+.task-actions .delete-btn:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.task-actions .edit-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* the box that appears while editing a task */
+.edit-input {
+  width: 100%;
+}
+
+/* drag and drop (used later in JavaScript) */
+.task-item.dragging {
+  opacity: 0.4;
+}
+
+/* ---------- 6. EMPTY MESSAGE AND FOOTER ---------- */
+#empty-message {
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem 0;
+}
+
+footer {
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+#clear-completed {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  color: var(--muted);
+}
+
+#clear-completed:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* ---------- 7. ANIMATION ---------- */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 8. SMALL SCREENS (phones) ---------- */
+@media (max-width: 520px) {
+  .app {
+    padding: 1rem;
+  }
+
+  #filters {
+    width: 100%;
+  }
+
+  .filter-btn {
+    flex: 1;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

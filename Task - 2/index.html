@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- HEADER -->
+    <header>
+      <h1>My Tasks</h1>
+      <p id="task-count">0 tasks left</p>
+    </header>
+
+    <!-- FORM: where the user adds a task -->
+    <section id="add-section">
+      <form id="task-form">
+        <input type="text" id="task-input" placeholder="What do you need to do?" required>
+
+        <select id="category-select">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Study">Study</option>
+        </select>
+
+        <input type="date" id="due-date">
+
+        <button type="submit" id="add-btn">Add task</button>
+      </form>
+    </section>
+
+    <!-- SEARCH AND FILTERS -->
+    <section id="controls">
+      <input type="search" id="search-input" placeholder="Search tasks...">
+
+      <div id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+    </section>
+
+    <!-- TASK LIST: JavaScript will fill this in -->
+    <section id="list-section">
+      <ul id="task-list"></ul>
+      <p id="empty-message">No tasks yet. Add one above!</p>
+    </section>
+
+    <!-- FOOTER ACTION -->
+    <footer>
+      <button id="clear-completed">Clear completed</button>
+    </footer>
+
+  </main>
+
+</body>
+</html>
