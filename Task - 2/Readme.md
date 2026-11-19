@@ -2,7 +2,7 @@
 
 A task management app built with HTML, CSS and vanilla JavaScript. It supports full CRUD (Create, Read, Update, Delete), and tasks are saved in the browser's `localStorage`, so they are still there after a page reload. It needs no server.
 
-**Live demo:** https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/Task-2-Task-Manager/
+**Live demo:** https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/Task%20-%202/
 
 ## Features
 - Add tasks with a category (Work, Personal, Study) and an optional due date
