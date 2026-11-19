@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <h1>Weather Dashboard</h1>
+
+    <!-- SEARCH -->
+    <form id="search-form">
+      <input type="text" id="city-input" placeholder="Search for a city (e.g. Paris)" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- LOADING SPINNER: hidden until JavaScript shows it -->
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Loading weather...</p>
+    </div>
+
+    <!-- ERROR MESSAGE: hidden until something goes wrong -->
+    <p id="error" class="hidden"></p>
+
+    <!-- WEATHER RESULTS: hidden until a search works -->
+    <section id="weather" class="hidden">
+
+      <!-- Current weather -->
+      <div id="current">
+        <h2 id="city-name"></h2>
+        <p id="local-date"></p>
+        <div id="weather-icon"></div>
+        <p id="temperature"></p>
+        <p id="condition"></p>
+      </div>
+
+      <!-- Extra details -->
+      <div id="details">
+        <div class="detail">
+          <span class="label">Humidity</span>
+          <span class="value" id="humidity"></span>
+        </div>
+        <div class="detail">
+          <span class="label">Wind speed</span>
+          <span class="value" id="wind"></span>
+        </div>
+        <div class="detail">
+          <span class="label">Pressure</span>
+          <span class="value" id="pressure"></span>
+        </div>
+      </div>
+
+      <!-- 5-day forecast: JavaScript will fill this in -->
+      <h3>5-day forecast</h3>
+      <div id="forecast"></div>
+
+    </section>
+
+    <footer>
+      <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+/* ---------- 1. COLORS AND BASICS ---------- */
+:root {
+  --text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  line-height: 1.5;
+
+  /* default background, used before any search */
+  background: linear-gradient(160deg, #3a7bd5, #00d2ff);
+  transition: background 0.6s;
+}
+
+/* ---------- 2. WEATHER THEMES ---------- */
+/* JavaScript adds ONE of these classes to <body> after each search */
+body.theme-sunny  { background: linear-gradient(160deg, #f6a623, #fd6f3b); }
+body.theme-cloudy { background: linear-gradient(160deg, #6b7b8c, #a7b4c2); }
+body.theme-rainy  { background: linear-gradient(160deg, #2c3e50, #4b79a1); }
+body.theme-snowy  { background: linear-gradient(160deg, #7f9bb5, #d6e4f0); }
+body.theme-stormy { background: linear-gradient(160deg, #1f1c2c, #5a4b81); }
+body.theme-night  { background: linear-gradient(160deg, #0b1026, #2b3a67); }
+
+/* ---------- 3. THE APP CARD ---------- */
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);          /* frosted glass effect */
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  margin: 1.5rem 0 0.75rem;
+}
+
+a {
+  color: var(--text);
+}
+
+/* ---------- 4. HIDDEN HELPER ---------- */
+/* JavaScript adds and removes this class to show or hide things */
+.hidden {
+  display: none !important;
+}
+
+/* ---------- 5. SEARCH FORM ---------- */
+#search-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+#city-input {
+  flex: 1;
+  font: inherit;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 10px;
+  color: #1b2330;
+}
+
+#city-input:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+#search-form button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border: none;
+  border-radius: 10px;
+  background: #1b2330;
+  color: #fff;
+  cursor: pointer;
+}
+
+#search-form button:hover {
+  opacity: 0.85;
+}
+
+/* ---------- 6. LOADING SPINNER ---------- */
+#loading {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.75rem;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;              /* one colored side makes the spin visible */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- 7. ERROR MESSAGE ---------- */
+#error {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(229, 72, 77, 0.9);
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- 8. CURRENT WEATHER ---------- */
+#weather {
+  margin-top: 1.5rem;
+  animation: fadeIn 0.5s ease;
+}
+
+#current {
+  text-align: center;
+}
+
+#city-name {
+  font-size: 1.7rem;
+}
+
+#local-date {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+#weather-icon {
+  font-size: 5rem;                     /* icons are emojis, so font-size makes them big */
+  line-height: 1.2;
+  margin: 0.5rem 0;
+}
+
+#temperature {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#condition {
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  opacity: 0.95;
+}
+
+/* ---------- 9. DETAILS (humidity, wind, pressure) ---------- */
+#details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.8rem 0.4rem;
+}
+
+.detail .label {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.detail .value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ---------- 10. 5-DAY FORECAST ---------- */
+#forecast {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.forecast-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.8rem 0.3rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.forecast-card:hover {
+  transform: translateY(-4px);
+}
+
+.forecast-day {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.forecast-icon {
+  font-size: 1.8rem;
+}
+
+.forecast-temp {
+  font-size: 0.85rem;
+}
+
+/* ---------- 11. FOOTER AND ANIMATION ---------- */
+footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 12. SMALL SCREENS (phones) ---------- */
+@media (max-width: 520px) {
+  .app {
+    padding: 1rem;
+  }
+
+  #temperature {
+    font-size: 2.8rem;
+  }
+
+  #forecast {
+    flex-wrap: wrap;                   /* cards wrap onto a second row */
+  }
+
+  .forecast-card {
+    flex: 1 1 28%;
+  }
+}
