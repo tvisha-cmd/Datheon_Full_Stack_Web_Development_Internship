@@ -2,7 +2,7 @@
 
 My personal portfolio website, built with plain HTML, CSS and JavaScript.
 
-**Live site:** https://tvisha-cmd.github.io/portfolio/
+**Live site:** https://tvisha-cmd.github.io/Portfolio/
 
 ## Features
 - Responsive layout that works on phones and computers (Flexbox and CSS Grid)
