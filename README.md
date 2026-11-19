@@ -24,3 +24,13 @@ Hosted on GitHub Pages from the `main` branch.
 
 ## Built with
 HTML5, CSS3, JavaScript (ES6+)
+## Tasks in this repository
+
+### Task 1: Personal Developer Portfolio
+- Files: `index.html`, `style.css`, `script.js` (top level of this repo)
+- Live site: https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/
+
+### Task 2: Dynamic Task Manager
+- Folder: `Task - 2/`
+- Live site: https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/Task%20-%202/
+- Built with: HTML5, CSS3, JavaScript, localStorage
