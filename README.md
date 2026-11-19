@@ -34,3 +34,8 @@ HTML5, CSS3, JavaScript (ES6+)
 - Folder: `Task - 2/`
 - Live site: https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/Task%20-%202/
 - Built with: HTML5, CSS3, JavaScript, localStorage
+- 
+### Task 3: Weather Forecast App
+- Folder: `Task - 3/`
+- Live site: https://tvisha-cmd.github.io/Datheon_Full_Stack_Web_Development_Internship/Task%20-%203/
+- Built with: HTML5, CSS3, JavaScript, Fetch API (async/await), Open-Meteo API
