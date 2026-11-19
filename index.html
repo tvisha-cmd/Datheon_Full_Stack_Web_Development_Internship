@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+  <a href="#home">Tvisha Contractor</a>
+  <nav id="nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="icon-btn" id="theme-btn" aria-label="Toggle dark or light theme">🌙</button></li>
+    </ul>
+  </nav>
+  <button class="icon-btn" id="menu-btn" aria-label="Open menu">☰</button>
+</header>
+<main>
+    <section id = "Home">
+        <h1>Hi, I'm Tvisha Contractor. I build software.</h1>
+        <p>Software engineering student at EPITA in Paris, with experience in Java, Python, Kotlin and Android development.</p>
+        <a href="#projects">See my Projects</a>
+        <a href="#contact">Get in touch</a>
+    </section>
+    <section id = "about">
+        <h2>About me</h2>
+        <p> I'm a software engineering student at EPITA in Paris. I worked as a
+        Software Developer Intern (FinTech) at Prama Innovations in Ahmedabad,
+        India.Resolved 8+ more bugs and errors and also developed new features into it. Still yearning to learn as more as I can push myself.</p>
+    </section>
+    <section id="skills">
+      <h2>Tech stack</h2>
+      <ul>
+        <li>Languages: Java, Kotlin, Python, SQL</li>
+        <li>Mobile: Android, Jetpack Compose</li>
+        <li>Backend: Spring Boot, MySQL, REST APIs</li>
+        <li>Cloud and security: AWS, penetration testing basics</li>
+      </ul>
+    </section>
+    <section id="projects">
+      <h2>Featured projects</h2>
+
+      <article>
+        <h3>Campus food Guide</h3>
+        <p>A team project with a MySQL backend and an Android app.</p>
+        <p>Tech: Android, MySQL, Teamwork</p>
+         <a href="https://github.com/tvisha-cmd">View on GitHub</a>
+      </article>
+      <article>
+        <h3>CampusPulse</h3>
+        <p>A cloud computing team project deployed on AWS.</p>
+        <p>Tech: AWS, Cloud, Teamwork</p>
+        <a href="https://github.com/tvisha-cmd">View on GitHub</a>
+      </article>
+      </section>
+      <section id="contact">
+      <h2>Contact</h2>
+      <p>Open to internships and junior roles. Feel free to reach out.</p>
+      <ul>
+        <li><a href="tvishacontractor2422@gmail.com">Email me</a></li>
+        <li><a href="https://github.com/tvisha-cmd">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tvisha-contractor-b25778322/">LinkedIn</a></li>
+      </ul>
+    </section>
+</main>
+ <footer>
+    <p>© 2026 Tvisha Contractor</p>
+  </footer>
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="icon-btn close" id="modal-close" aria-label="Close">✕</button>
+    <h3 id="m-title"></h3>
+    <p id="m-desc"></p>
+    <p id="m-tech"></p>
+    <a id="m-link" href="#" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</div>
+</body>
+</html>
